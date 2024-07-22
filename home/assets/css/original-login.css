@@ -1,0 +1,631 @@
+@font-face {
+    font-family: "Gotham Rounded Light";
+    src: url("../fontes/GothamRounded/GothamRounded-Light.otf");
+    font-weight: 700;
+    font-style: normal; }
+  
+  @font-face {
+    font-family: "Gotham Rounded Book";
+    src: url("../fontes/GothamRounded/GothamRounded-Book.otf");
+    font-weight: 700;
+    font-style: normal; }
+  
+  @font-face {
+    font-family: "Gotham Rounded Medium";
+    src: url("../fontes/GothamRounded/GothamRounded-Medium.otf");
+    font-weight: 700;
+    font-style: normal; }
+  
+  @font-face {
+    font-family: "Gotham Rounded Bold";
+    src: url("../fontes/GothamRounded/GothamRounded-Bold.otf");
+    font-weight: 700;
+    font-style: normal; }
+  
+  h1, h2, .btn-acao, label {
+    font-family: "Gotham Rounded Bold"; }
+    h1 span, h2 span, .btn-acao span, label span {
+      font-family: "Gotham Rounded book"; }
+  
+  h3, h4, h5, h6 {
+    font-family: "Gotham Rounded Medium"; }
+    h3 span, h4 span, h5 span, h6 span {
+      font-family: "Gotham Rounded Light"; }
+  
+  .form-control {
+    font-family: "Gotham Rounded Book"; }
+  
+  b, .status, .tit-tabela, .progress, .ativo {
+    font-family: "Gotham Rounded Bold"; }
+  
+  p {
+    font-family: "Gotham Rounded Light"; }
+    p span {
+      font-family: "Gotham Rounded Medium"; }
+  
+  .table {
+    font-size: .9rem; }
+    .table thead {
+      font-family: "Gotham Rounded Medium"; }
+    .table tbody {
+      font-family: "Gotham Rounded Book"; }
+  
+  .scroll {
+    overflow-x: scroll !important; }
+  
+  .scroll::-webkit-scrollbar {
+    width: 20px; }
+  
+  .scroll::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    background: #ff8024; }
+  
+  .scroll::-webkit-scrollbar-track-piece {
+    background: #f3f3f3;
+    border-radius: 10px; }
+  
+  body {
+    height: 100vh;
+    background: #F5F5F5;
+    font-family: 'Gotham Rounded book';
+    color: #1a303c;
+    }
+  
+  a, button, .botoes-tab span, i {
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out; }
+  
+  a:hover {
+    text-decoration: none; }
+  
+  .row {
+    margin: 0; }
+  
+  .modal {
+    z-index: 9999 !important; }
+  
+  .lado-logo {
+    height: 100vh;
+    background: #1a303c; }
+  
+  .lado-login {
+    background: #ff7520;
+    color: #fff;
+    font-family: "Gotham Rounded Bold"; }
+    .lado-login .box-login {
+      background: #DBDBDB;
+      border-bottom: 4px solid #1a303c;
+      font-size: 2rem;
+      color: #1a303c;
+      }
+      .lado-login .box-login a {
+        color: #1a303c; }
+      .lado-login .box-login:hover a {
+        color: #ff7520; }
+      .lado-login .box-login:hover .icone i {
+        color: #DBDBDB; }
+      .lado-login .box-login .icone {
+        padding: 20px;
+        background: #1a303c;
+        color: #fff;
+        margin-bottom: -1px; }
+        .lado-login .box-login .icone i {
+          width: 80px;
+          height: 80px;
+          font-size: 4rem;
+          display: flex;
+          align-items: center;
+          justify-content: center; }
+  
+  #container-login {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0; }
+    #container-login > .row {
+      position: absolute;
+      width: 100%;
+      top: 50%; }
+      #container-login > .row .login {
+        background: #fff;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -185px;
+        -moz-box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 0px 0px 20px -5px rgba(0, 0, 0, 0.75); }
+        #container-login > .row .login input {
+          border-radius: 0;
+          border: none;
+          border-bottom: 1px solid #dee2e6 !important; }
+        #container-login > .row .login button {
+          border-radius: 0; }
+        #container-login > .row .login .desenvolvedor {
+          text-align: center;
+          font-size: 11px; }
+  
+  .retina {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999; }
+  
+  .menu-lateral {
+    position: fixed;
+    z-index: 9999;
+    padding: 0px;
+    background: #1a303c;
+    color: #fff;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 250px; }
+    .menu-lateral .menu-links {
+      position: fixed;
+      margin-top: 135px;
+      z-index: 9999;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      overflow-y: auto;
+      width: 250px; }
+    .menu-lateral .box-logo {
+      border-bottom: 1px solid #DBDBDB; }
+      .menu-lateral .box-logo .logo {
+        width: 50%;
+        text-align: center; }
+    .menu-lateral .btn-mobile {
+      position: relative;
+      height: 25px; }
+      .menu-lateral .btn-mobile i {
+        font-size: 1.5rem;
+        position: absolute;
+        left: 50%;
+        top: 0px;
+        margin-left: -13.5px;
+        display: inline-block;
+        cursor: pointer; }
+      .menu-lateral .btn-mobile .fa-toggle-on {
+        color: #ff7520; }
+    .menu-lateral .lista-menu ul {
+      list-style: none;
+      padding: 0; }
+      .menu-lateral .lista-menu ul li {
+        font-size: 1.1rem;
+        border-left: 4px solid #1a303c; }
+        .menu-lateral .lista-menu ul li a {
+          display: block;
+          color: #fff;
+          padding: 10px 0px 10px 10px; }
+          .menu-lateral .lista-menu ul li a i {
+            width: 30px;
+            text-align: center; }
+        .menu-lateral .lista-menu ul li span {
+          display: inline-block;
+          margin-left: 10px; }
+      .menu-lateral .lista-menu ul li.ativo {
+        background: #fff;
+        border-color: #ff7520; }
+        .menu-lateral .lista-menu ul li.ativo a {
+          color: #ff7520; }
+  
+  .atalhos-dashboard.admin .box-atalho a {
+    background: #DBDBDB; }
+  
+  .atalhos-dashboard.professores .box-atalho a {
+    background: #fff; }
+  
+  .atalhos-dashboard .box-atalho {
+    margin-top: 30px !important; }
+    .atalhos-dashboard .box-atalho a {
+      height: 160px;
+      padding: 1rem;
+      border-bottom: 5px solid #ff7520;
+      display: block; }
+      .atalhos-dashboard .box-atalho a p {
+        font-family: "Gotham Rounded book" !important;
+        font-size: 1.2rem;
+        line-height: 26px;
+        margin-bottom: 0; }
+        .atalhos-dashboard .box-atalho a p .quant {
+          font-size: 25px; }
+        .atalhos-dashboard .box-atalho a p .data {
+          font-size: 25px; }
+      .atalhos-dashboard .box-atalho a .icon {
+        position: relative;
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        border-radius: 35px;
+        background: #fff;
+        margin-right: 1rem;
+        margin-left: 1rem; }
+        .atalhos-dashboard .box-atalho a .icon i {
+          display: flex;
+          align-items: center !important;
+          justify-content: center !important;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-top: -20px;
+          margin-left: -20px;
+          width: 40px;
+          height: 40px;
+          font-size: 28px; }
+    .atalhos-dashboard .box-atalho .azul {
+      color: #1a303c;
+      border-color: #1a303c; }
+      .atalhos-dashboard .box-atalho .azul .progress-bar {
+        background-color: #1a303c; }
+      .atalhos-dashboard .box-atalho .azul .icon {
+        background: #1a303c;
+        color: #fff; }
+    .atalhos-dashboard .box-atalho .azul-2 {
+      background: #1a303c !important;
+      color: #fff;
+      border-color: #1a303c; }
+      .atalhos-dashboard .box-atalho .azul-2 i {
+        color: #1a303c; }
+    .atalhos-dashboard .box-atalho .laranja {
+      background: #ff7520 !important;
+      color: #fff; }
+      .atalhos-dashboard .box-atalho .laranja i {
+        color: #ff7520; }
+    .atalhos-dashboard .box-atalho .cicle-laranja {
+      background: #ff7520 !important;
+      color: #fff; }
+  
+  .atalhos-dashboard .tabela-dashboard .tit-tabela {
+    text-align: center;
+    background: #fff;
+    border: 2px solid #707070 !important;
+    border-bottom: none;
+    padding: .30rem;
+    color: #707070; }
+  
+  .atalhos-dashboard .tabela-dashboard .table {
+    background: #fff;
+    color: #707070;
+    border: 2px solid #707070; }
+    .atalhos-dashboard .tabela-dashboard .table th, .atalhos-dashboard .tabela-dashboard .table td {
+      padding: .5rem 1rem;
+      text-align: center;
+      vertical-align: middle;
+      min-width: 115px; }
+    .atalhos-dashboard .tabela-dashboard .table thead th {
+      color: #fff;
+      background: #707070;
+      border-bottom: 2px solid #707070; }
+  
+  .btn-acao {
+    display: inline-block;
+    padding: 0.1rem .9rem;
+    color: #ff7520;
+    background: none;
+    border-radius: 5px;
+    border: 2px solid;
+    border-color: #ff7520;
+    cursor: pointer; }
+    .btn-acao:hover {
+      background: #ff7520;
+      color: #fff; }
+    .btn-acao i {
+      margin-right: 5px; }
+  
+  .btn-acao.buscar {
+    color: #fff;
+    background: #4C2A85;
+    border-color: #4C2A85;
+    border-radius: 0px; }
+    .btn-acao.buscar:hover {
+      opacity: .8; }
+  
+  .btn-acao.limpar {
+    color: #4C2A85;
+    background: #fff;
+    border-color: #4C2A85;
+    border-radius: 0px; }
+    .btn-acao.limpar:hover {
+      opacity: .8; }
+  
+  .btn-acao.enviar {
+    color: #fff;
+    background: #1a303c;
+    border-color: #1a303c;
+    width: 100%;
+    border-radius: 0px; }
+    .btn-acao.enviar:hover {
+      color: #fff;
+      background: #4C2A85;
+      border-color: #4C2A85; }
+  
+  .btn-acao.concluir {
+    background: none;
+    color: #28a745;
+    border-color: #28a745; }
+    .btn-acao.concluir:hover {
+      color: #fff;
+      background: #28a745; }
+  
+  .btn-acao.cancelar, .btn-acao.excluir {
+    background: none;
+    color: #dc3545;
+    border-color: #dc3545; }
+    .btn-acao.cancelar:hover, .btn-acao.excluir:hover {
+      color: #fff;
+      background: #dc3545; }
+  
+  .btn-acao.desativado {
+    cursor: no-drop;
+    background: none;
+    color: #ccc;
+    border-color: #ccc; }
+    .btn-acao.desativado:hover {
+      color: #ccc;
+      background: none; }
+  
+  .btn-acao.novo {
+    color: #1a303c;
+    background: none;
+    border-color: #1a303c; }
+    .btn-acao.novo:hover {
+      background: #1a303c;
+      color: #fff; }
+  
+  .btn-acao.editar {
+    color: #ff7520;
+    background: none;
+    border-color: #ff7520; }
+    .btn-acao.editar:hover {
+      background: #ff7520;
+      color: #fff; }
+  
+  .btn-acao.enviar,
+  .btn-acao.buscar {
+    padding: 0.35rem .9rem; }
+  
+  .nota {
+    background: #4C2A85;
+    display: inline-block;
+    padding: 0rem .8rem;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center; }
+  
+  .nota.negativa {
+    background: #dc3545 !important; }
+  
+  .internas {
+    background: #fff;
+    min-height: 600px; }
+    .internas p {
+      margin-bottom: .5rem; }
+    .internas .tit-internas {
+      display: inline-block;
+      border-bottom: 2px solid #ff7520; }
+    .internas .alunos-curso {
+      border-left: 1px solid #9E9E9E; }
+      .internas .alunos-curso .lista-alunos {
+        padding: 0;
+        margin: 0; }
+        .internas .alunos-curso .lista-alunos li {
+          padding: 1rem 0rem;
+          list-style: none; }
+          .internas .alunos-curso .lista-alunos li:nth-child(odd) {
+            background: #f3f3f3; }
+    .internas .progresso-media {
+      position: relative;
+      height: 1.4rem; }
+      .internas .progresso-media span {
+        position: absolute;
+        top: 0;
+        font-size: 1rem;
+        color: #1a303c; }
+      .internas .progresso-media .text-media {
+        color: #fff;
+        left: 5px; }
+      .internas .progresso-media .text-nota {
+        right: 5px; }
+    .internas .lado-user {
+      border-right: 1px solid #9E9E9E; }
+      .internas .lado-user .status {
+        display: inline-block;
+        border: 2px solid;
+        border-color: #4C2A85;
+        color: #4C2A85; }
+        .internas .lado-user .status span {
+          display: inline-block;
+          padding: 0rem .6rem;
+          text-align: center; }
+        .internas .lado-user .status .spn2 {
+          background: #4C2A85;
+          color: #fff; }
+    .internas .form-control {
+      background: #E6E6E6;
+      border-radius: 0;
+      border-color: #A1A1A1; }
+      .internas .form-control::placeholder {
+        color: #A1A1A1; }
+    .internas .tabela-internas .tit-tabela {
+      text-align: center;
+      border: 2px solid #ECEEEF !important;
+      border-bottom: none;
+      padding: .30rem;
+      color: #1a303c; }
+    .internas .tabela-internas .table {
+      overflow: auto;
+      border: 2px solid #ECEEEF;
+      background: #fff;
+      color: #707070; }
+      .internas .tabela-internas .table th, .internas .tabela-internas .table td {
+        padding: .5rem;
+        text-align: center;
+        vertical-align: middle;
+        min-width: 100px; }
+      .internas .tabela-internas .table thead th {
+        color: #1a303c;
+        background: #ECEEEF;
+        border-bottom: 2px solid #ECEEEF; }
+    .internas .tabela-internas .table-striped tbody tr:nth-of-type(odd) {
+      background-color: rgba(144, 144, 144, 0.05); }
+    .internas .form-interna {
+      color: #9E9E9E; }
+      .internas .form-interna label {
+        margin-bottom: 0; }
+      .internas .form-interna input, .internas .form-interna textarea, .internas .form-interna select {
+        border: none; }
+    .internas .tab-interna .botoes-tab span {
+      display: inline-block;
+      padding: .35rem 1rem;
+      border: 2px solid #1a303c;
+      cursor: pointer; }
+      .internas .tab-interna .botoes-tab span:hover {
+        background: #1a303c;
+        color: #fff; }
+    .internas .tab-interna .botoes-tab .ativo {
+      background: #1a303c;
+      color: #fff; }
+    .internas .tab-interna .table tr td, .internas .tab-interna .table tr th {
+      min-width: 115px; }
+  
+  .rodape {
+    position: fixed;
+    margin-left: 250px;
+    font-size: .9rem;
+    bottom: 0;
+    width: 100%;
+    background: #fff; }
+  
+  .conteudo-painel {
+    margin-left: 250px; }
+  
+  .foto-redonda, .foto-redonda-alunos {
+    display: block;
+    cursor: pointer;
+    overflow: hidden;
+    height: 170px;
+    width: 170px;
+    position: relative;
+    border-radius: 100%;
+    background-size: cover !important;
+    background-position: center !important; }
+  
+  .foto-redonda-alunos {
+    height: 100px;
+    width: 100px; }
+  
+  .fc td.fc-today {
+    background: #ffe3d1 !important;
+    font-family: "Gotham Rounded Bold";
+    color: #1a303c; }
+  
+  .fc-widget-header {
+    background: #ff7520;
+    color: #1a303c;
+    font-family: "Gotham Rounded Bold"; }
+  
+  @media (min-width: 1400px) {
+    .atalhos-dashboard .box-atalho a {
+      padding: 1rem; } }
+  
+  @media (min-width: 1199.99px) {
+    .atalhos-dashboard .box-atalho a {
+      padding: 0 !important; }
+      .atalhos-dashboard .box-atalho a p {
+        max-width: 200px;
+        padding-left: 1rem; }
+      .atalhos-dashboard .box-atalho a .icon {
+        margin-right: 0; } }
+  
+  @media (min-width: 576px) {
+    .btn-detalhes {
+      min-width: 120px; } }
+  
+  @media (max-width: 1199.98px) {
+    .lado-login .box-login {
+      font-size: 1.2rem; }
+      .lado-login .box-login .icone i {
+        height: 30px;
+        width: 30px;
+        font-size: 2rem; } }
+  
+  @media (max-width: 991.98px) {
+    .table-avaliacao tr td, .table-avaliacao tr th {
+      min-width: 88px !important; }
+    .internas .lado-user, .internas .alunos-curso {
+      border: none; }
+    .btn-acao {
+      padding: 0.1rem .4rem; }
+    .lado-login .box-login {
+      font-size: 1.2rem; }
+      .lado-login .box-login .icone i {
+        height: 30px;
+        width: 30px;
+        font-size: 2rem; } }
+  
+  @media (max-width: 767.98px) {
+    .table-avaliacao tr td, .table-avaliacao tr th {
+      min-width: 130px; }
+    .lado-login .box-login {
+      font-size: 1.2rem; }
+      .lado-login .box-login .icone i {
+        height: 30px;
+        width: 30px;
+        font-size: 2rem; } }
+  
+  @media (max-width: 575.98px) {
+    .lado-logo {
+      height: 30vh; }
+      .lado-logo img {
+        width: 150px; }
+    .lado-login {
+      height: 70vh; }
+      .lado-login .box-login {
+        font-size: 1.2rem; }
+        .lado-login .box-login .icone i {
+          height: 20px;
+          width: 20px;
+          font-size: 2rem; }
+    h2, .h2 {
+      font-size: 1.7rem; }
+    .fc td {
+      font-size: 12px !important; }
+    .toolbar h2 {
+      margin-bottom: 1.5rem !important; }
+    .atalhos-dashboard .box-atalho a p {
+      max-width: 150px;
+      font-size: 1rem; }
+    .atalhos-dashboard .box-atalho a .icon {
+      margin-right: .5rem;
+      margin-left: 0rem; }
+    .conteudo-painel .internas .tit-internas {
+      width: 100%;
+      font-size: 1.5rem; }
+    .tabela-internas .table {
+      font-size: 12px; }
+      .tabela-internas .table td {
+        padding: 10px 0 !important; }
+        .tabela-internas .table td .btn-acao {
+          padding: 5px !important; }
+          .tabela-internas .table td .btn-acao i {
+            display: none; }
+    .rodape {
+      width: auto; }
+    .btn-acao.novo {
+      padding: 0.1rem .3rem; }
+    .lado-user .status span {
+      width: 100%; } }
+  
+  .modal {
+    z-index: 9999; }
+  

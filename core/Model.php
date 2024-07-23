@@ -4,6 +4,7 @@ namespace core;
 use \core\Database;
 use \ClanCats\Hydrahon\Builder;
 use \ClanCats\Hydrahon\Query\Sql\FetchableInterface;
+use ClanCats\Hydrahon\Query\Sql\Insert;
 
 class Model {
 
@@ -23,6 +24,11 @@ class Model {
                 if ($query instanceof FetchableInterface)
                 {
                     return $statement->fetchAll(\PDO::FETCH_ASSOC);
+                }
+
+                if ($query instanceof Insert)
+                {
+                    return $connection->lastInsertId();
                 }
             });
         }

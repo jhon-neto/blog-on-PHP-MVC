@@ -2,6 +2,6 @@
 namespace src\models;
 use \core\Model;
 
-class Student extends Model {
+class Instagram extends Model {
 
 }

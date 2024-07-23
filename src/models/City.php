@@ -2,6 +2,6 @@
 namespace src\models;
 use \core\Model;
 
-class Evaluation extends Model {
+class City extends Model {
 
 }

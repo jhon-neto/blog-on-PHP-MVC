@@ -38,6 +38,7 @@ class Controller {
                 '2025' => '#9932CC',
                 '2024' => '#1400D3'
             ];
+            $authenticated = in_array($_SESSION['permission'], ['Gerencia', 'MASTER']);
             require '../src/views/'.$folder.'/'.$viewName.'.php';
         }
     }
@@ -48,22 +49,6 @@ class Controller {
 
     public function render($viewName, $viewData = []) {
         $this->_render('pages', $viewName, $viewData);
-    }
-
-    public function adminAuth()
-    {
-        if($_SESSION['permission'] != 'Admin') {
-            $this->redirect('/Sistema');
-            exit;
-        }
-    }
-
-    public function hashCompare($pass1, $pass2)
-    {
-        if($pass1 && $pass2 && $pass1 === $pass2) {
-            return true;
-        }
-        return false;
     }
 
     function dd($args, $type = null)

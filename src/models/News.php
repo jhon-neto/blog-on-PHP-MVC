@@ -2,6 +2,6 @@
 namespace src\models;
 use \core\Model;
 
-class CourseToStudent extends Model {
+class News extends Model {
 
 }

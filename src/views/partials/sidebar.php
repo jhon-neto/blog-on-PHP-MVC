@@ -24,23 +24,23 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/Contas">
-                        <i class="fas fa-user-tie"></i> <span>Editorias</span>
+                    <a href="<?=$base?>/Editoriais">
+                        <i class="fas fa-user-tie"></i> <span>Editoriais</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/Alunos">
-                        <i class="fas fa-users"></i> <span>Users-Ins</span>
+                    <a href="<?=$base?>/adicionar-noticia">
+                        <i class="fas fa-user-tie"></i> <span>Cadastrar Notícia</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/Alunos">
-                        <i class="fas fa-users"></i> <span>Fale Conosco</span>
+                    <a href="<?=$base?>/Instagram">
+                        <i class="zmdi zmdi-instagram"></i> <span>Usuários Instagram</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/Contas">
-                        <i class="fas fa-user-tie"></i> <span>Notícias</span>
+                    <a href="<?=$base?>/Configuracoes">
+                        <i class="fas fa-users"></i> <span>Configurações</span>
                     </a>
                 </li>
                 <hr>

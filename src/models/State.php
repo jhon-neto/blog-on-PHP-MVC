@@ -2,6 +2,6 @@
 namespace src\models;
 use \core\Model;
 
-class Classes extends Model {
+class State extends Model {
 
 }

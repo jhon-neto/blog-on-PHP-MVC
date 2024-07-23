@@ -4,43 +4,51 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\models\User;
+use \src\models\State;
+use \src\models\City;
 
 class UserController extends Controller
 {
     public function index()
     {
         $a = User::select()->get();
-        $this->render('user', [
-            'cadastro' => $a
+        $s = State::select()->orderBy('name')->get();
+
+        $this->render('users', [
+            'data' => $a,
+            'states' => $s
         ]);
+    }
+
+    public function update($args)
+    {
+        $a = User::select()->find($args['id']);
+        $s = State::select()->orderBy('name')->get();
+
+        $this->render('user-update', [
+            'data' => $a,
+            'states' => $s
+        ]);
+    }
+
+    public function getCity($args)
+    {
+        $c = City::select()->where('uf_id', $args['id'])->get();
+        echo json_encode($c);
     }
 
     public function login()
     {
         $this->render('login');
-
-    }
-
-    public function choice()
-    {
-        $this->render('login', 'choice');
-    }
-
-    public function logout()
-    {
-        session_destroy();
-        $this->redirect('/');
     }
 
     public function loginaction()
     {
-        $permission = filter_input(INPUT_POST, 'permission');
         $login = filter_input(INPUT_POST, 'login');
         $pass = filter_input(INPUT_POST, 'pass');
         $hash = password_hash($pass, PASSWORD_DEFAULT);
 
         if ($login && $pass) {
-
             $data = User::select()->where('login', $login)->one();
             if ($login == $data['login'] && $hash == password_verify($pass, $data['pass'])) {
                 $_SESSION['logged'] = $data['login'];
@@ -53,52 +61,76 @@ class UserController extends Controller
                 $this->redirect('/Sistema');
                 exit;
             }
-
         }
         $_SESSION['msg'] = true;
 
         $this->redirect('/login');
     }
 
-    public function edit()
+    public function create()
     {
-        if ($_SESSION['permission'] != 'Admin') {
-            $this->redirect('/Sistema');
-            exit;
+        $data['login'] = filter_input(INPUT_POST, 'login');
+
+        if (User::select()->where('login', $data['login'])->one()) {
+            $_SESSION['result']['class'] = 'btn btn-warning btn-lg';
+            $_SESSION['result']['msg'] = 'Usuário já cadastrado, escolha outro login!';
+            $this->redirect('/Usuarios');
         }
 
-        $dado = $this->getUser($_SESSION['permission'], $_SESSION['email']);
+        $data['pass'] = filter_input(INPUT_POST, 'pass');
+        $data['permission'] = filter_input(INPUT_POST, 'permission');
+        $data['city'] = filter_input(INPUT_POST, 'city');
+        $state = State::select('name')
+            ->find(filter_input(INPUT_POST, 'state'));
+        $data['state'] = $state['name'];
 
-        $this->render('admin', 'edit-Admin', [
-            'data' => $dado
-        ]);
+        User::insert($data)->execute();
+
+        $_SESSION['result']['class'] = 'btn btn-success btn-lg';
+        $_SESSION['result']['msg'] = 'Usuário foi ADICIONADO com sucesso!';
+        $this->redirect('/Usuarios');
     }
 
-    public function editUser()
+    public function updateUser()
     {
-
-        $nome_completo = filter_input(INPUT_POST, 'nome_completo');
-        $email = filter_input(INPUT_POST, 'email');
-        $senha = filter_input(INPUT_POST, 'senha');
-        $confirma_senha = filter_input(INPUT_POST, 'senha2');
+        $data['login'] = filter_input(INPUT_POST, 'login');
+        $pass = filter_input(INPUT_POST, 'pass');
+        $data['permission'] = filter_input(INPUT_POST, 'permission');
+        $data['city'] = filter_input(INPUT_POST, 'city');
         $id = filter_input(INPUT_POST, 'id');
+        $hash = password_hash($pass, PASSWORD_DEFAULT);
+        $state = State::select('name')
+            ->find(filter_input(INPUT_POST, 'state'));
+        $data['state'] = $state['name'];
 
-        $_SESSION['logged'] = $nome_completo;
-        $_SESSION['email'] = $email;
+        $u = User::select('pass')->find($id);
 
-        $std = User::update();
+        $user = User::update();
 
-        if(!$this->hashCompare($senha, $confirma_senha)) {
-            $std->set('senha', password_hash($senha, PASSWORD_DEFAULT));
+        if ($hash != password_verify($pass, $u['pass'])) {
+            $user->set('pass', $hash);
         }
-
-        $std->set('nome_completo', $nome_completo)
-            ->set('email', $email)
+        $user->set($data)
             ->where('id', $id)
             ->execute();
 
-        $_SESSION['edit'] = true;
+        $_SESSION['result']['class'] = 'btn btn-primary btn-lg';
+        $_SESSION['result']['msg'] = 'Usuário foi EDITADO com sucesso!';
+        $this->redirect('/Usuarios');
+    }
 
-        $this->redirect('/Meus-dados');
+    public function delete($args)
+    {
+        User::delete()->where('id', $args['id'])->execute();
+
+        $_SESSION['result']['class'] = 'btn btn-danger btn-lg';
+        $_SESSION['result']['msg'] = 'Usuário foi EXCLUÍDO com sucesso!';
+        $this->redirect('/Usuarios');
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        $this->redirect('/');
     }
 }

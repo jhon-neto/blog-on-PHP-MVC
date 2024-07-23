@@ -78,13 +78,24 @@ class NewsController extends Controller
 
     public function updateNews()
     {
-        $data['username'] = str_replace('@', '', filter_input(INPUT_POST, 'username'));
+        $data['title'] = filter_input(INPUT_POST, 'title');
+        $data['author'] = filter_input(INPUT_POST, 'author');
+        $data['editorial'] = filter_input(INPUT_POST, 'editorial');
+        $data['text'] = filter_input(INPUT_POST, 'text');
+        $ids = filter_input(INPUT_POST, 'user', FILTER_DEFAULT , FILTER_REQUIRE_ARRAY);
         $id = filter_input(INPUT_POST, 'id');
 
-        News::update()
+        $news = News::update()
             ->set($data)
             ->where('id', $id)
             ->execute();
+
+        foreach ($ids as $id) {
+//            UsersInNews::insert([
+//                'user_id' => $id,
+//                'news_id' => $news
+//            ])->execute();
+        }
 
         $_SESSION['result']['class'] = 'btn btn-primary btn-lg';
         $_SESSION['result']['msg'] = 'Notícia foi EDITADA com sucesso!';

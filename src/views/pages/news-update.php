@@ -9,7 +9,7 @@ $render('topbar');
     <div class="container-fluid">
 
         <!--Start Dashboard Content-->
-        <form method="POST" action="<?= $base ?>/news-create">
+        <form method="POST" action="<?= $base ?>/news-update">
             <div class="row">
                 <div class="col-lg">
                     <div class="card">
@@ -25,6 +25,7 @@ $render('topbar');
                                             <input type="text" name="title"
                                                     class="form-control form-control-rounded"
                                                     value="<?= $data['title']?>">
+                                            <input type="hidden" name="id" value="<?= $data['id'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-lg">
@@ -74,7 +75,8 @@ $render('topbar');
                                                     rows="5"
                                                     maxlength="1500"
                                                     class="form-control form-control-rounded text-white"
-                                            ></textarea>
+                                            ><?=$data['text']?>
+                                            </textarea>
                                         </div>
                                     </div>
                                 </div>
